@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Custom inputs</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Custom inputs</h1>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<form action="#" class="custom-inputs">
+					<fieldset>
+						<legend>Radiobuttons</legend>
+						<div class="form-group">
+							<div>
+								<input type="radio" name="radio" id="radio_1" value="radio_1">
+								<label for="radio_1">Radio 1</label>
+							</div>
+							<div>
+								<input type="radio" name="radio" id="radio_2" value="radio_2">
+								<label for="radio_2">Radio 2</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div>
+								<input type="radio" name="rad" id="rad_1" disabled value="rd1">
+								<label for="rad_1">Radio 1 [disabled]</label>
+							</div>
+							<div>
+								<input type="radio" name="rad" id="rad_2" checked value="rd2">
+								<label for="rad_2">Radio 2 [checked]</label>
+							</div>
+							<div>
+								<input type="radio" name="rad" id="rad_3" value="rd3">
+								<label for="rad_3">Radio 3</label>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend>Checkboxes</legend>
+						<div class="form-group">
+							<div>
+								<input type="checkbox" id="checkbox_1" checked name="ch1">
+								<label for="checkbox_1">Checkbox 1</label>
+							</div>
+							<div>
+								<input type="checkbox" id="checkbox_2" name="ch2">
+								<label for="checkbox_2">Checkbox 2</label>
+							</div>
+						</div>
+					</fieldset>
+					<input type="submit" value="Done" class="btn btn-default btn-lg">
+					<a href="#" class="btn btn-lg btn-warning" id="update_radios">Reset radios</a>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+	<!-- urInputs BEGIN -->
+	<link rel="stylesheet" href="css/urinputs.css">
+	<script src="js/urInputs.js"></script>
+	<script>
+		$(function() {
+			$('.custom-inputs').urInputs({
+				replaceRadios: true,
+				replaceCheckboxes: true
+			});
+
+			var custom_api = $('.custom-inputs').data('urInputs');
+
+			$('#update_radios').on('click.upd', function() {
+				$('input:radio').prop('checked', false);
+				$('input:checkbox').prop('checked', false);
+				custom_api.update();
+				return false;
+			})
+		})
+	</script>
+	<!-- urInputs END -->
+</body>
+</html>

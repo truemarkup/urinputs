@@ -1,0 +1,44 @@
+.customizedElement {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+.customDisabled {
+  opacity: .3;
+}
+
+.customRadio {
+  display: inline-block;
+  position: relative;
+  margin-right: 15px;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  background: #eee;
+  border-radius: 11px;
+  border: 1px solid #000;
+}
+.customRadioChecked:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -3px 0 0 -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: #000;
+}
+
+.customCheckbox {
+  display: inline-block;
+  margin-right: 15px;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  background: #eee;
+  border: 1px solid #000;
+}
+.customCheckboxChecked {
+  background-color: #777;
+}
