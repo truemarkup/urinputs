@@ -1,4 +1,4 @@
-// jQuery urInputs v4.2.0 (2015-01-08) | MIT
+// jQuery urInputs v4.2.1 (2015-01-08) | MIT
 ;(function($, undefined) {
   var UrInputs = function(element, options) {
     var container = $(element),
@@ -46,7 +46,9 @@
             rbtn_custom = rbtn.data('custom');
 
         if ( rbtn.attr('id') === radiobutton_id ) {
-          rbtn.prop('checked', true);
+          rbtn
+            .prop('checked', true)
+            .trigger('change');
           rbtn_custom.addClass(settings.radioClassChecked);
         } else {
           rbtn.prop('checked', false);
@@ -77,10 +79,14 @@
       var checkbox_custom = checkbox.data('custom');
 
       if (checkbox.is(':checked')) {
-        checkbox.prop('checked', false);
+        checkbox
+          .prop('checked', false)
+          .trigger('change');
         checkbox_custom.removeClass(settings.checkboxClassChecked);
       } else {
-        checkbox.prop('checked', true);
+        checkbox
+          .prop('checked', true)
+          .trigger('change');
         checkbox_custom.addClass(settings.checkboxClassChecked);
       }
     };
